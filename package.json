@@ -2,7 +2,7 @@
     "name": "Billit",
     "private": true,
     "version": "0.0.0",
-    "description": "a Sails application",
+    "description": "an app to organize your invoices",
     "dependencies": {
         "sails": "0.9.13",
         "grunt": "0.4.1",
