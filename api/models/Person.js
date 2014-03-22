@@ -36,7 +36,15 @@ module.exports = {
             defaultsTo: 'german'
         },
         taxNumber: 'string',
-             iban: 'string',
-              bic: 'string'
+             iban: {
+                 type: 'string',
+            maxLength: 27,
+            minLength: 20
+              },
+              bic: {
+                 type: 'string',
+            maxLength: 11,
+            minLength: 8
+              }
     }
 };
