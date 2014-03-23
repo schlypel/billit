@@ -32,9 +32,29 @@ module.exports.routes = {
   // located at `views/home/index.ejs`
   //
   // (This would also work if you had a file at: `/views/home.ejs`)
-  '/': {
-    view: 'home/index'
-  }
+    '/': {
+        view: 'home/index'
+    },
+    'get /login': {
+        view: 'home/login'
+    },
+    'post /login': {
+        controller: 'AuthController',
+        action: 'login'
+    },
+    'get /logout': {
+        controller: 'AuthController',
+        action: 'logout'
+    },
+    'get /isLoggedIn': {
+        controller: 'auth',
+        action: 'isLoggedIn'
+    },
+    'get /app': {
+        controller: 'app',
+        action: 'index'
+    }
+
 
   /*
   // But what if you want your home page to display

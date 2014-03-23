@@ -1,4 +1,8 @@
 {
-  "Welcome": "Wilkommen",
-  "Invoice management": "Rechnungsverwaltung"
+    "Welcome": "Wilkommen",
+    "Invoice management": "Rechnungsverwaltung",
+    "Logout": "Abmelden",
+    "Login": "Anmelden",
+    "Go to app": "Lade App",
+    "You are allready logged in.": "Du bist bereits angemeldet."
 }

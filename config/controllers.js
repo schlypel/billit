@@ -115,7 +115,7 @@ module.exports.controllers = {
      *
      * By default, no prefix is used.
      */
-    prefix: '',
+    prefix: '/api/v1',
 
 
 
@@ -164,6 +164,6 @@ module.exports.controllers = {
    *
    * Defaults to false.
    */
-  expectIntegerId: false
+  expectIntegerId: true
 
 };
