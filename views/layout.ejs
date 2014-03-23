@@ -59,8 +59,6 @@
 			<nav id="nav" class="skel-panels-fixed">
 				<ul>
 					<li<%- (req.path == '/')?' class="current_page_item"':'' %>><a href="/">Home</a></li>
-					<li<%- (req.path == '/a')?' class="current_page_item"':'' %>><a href="left-sidebar.html">Left Sidebar</a></li>
-					<li<%- (req.path == '/b')?' class="current_page_item"':'' %>><a href="right-sidebar.html">Right Sidebar</a></li>
 					<li<%- (req.path == '/login')?' class="current_page_item"':'' %>><a href="/<%= (req.session.authenticated)?'logout':'login' %>"><%= (req.session.authenticated)?i18n('Logout'):i18n('Login') %></a></li>
 				</ul>
 			</nav>
@@ -68,6 +66,59 @@
         <!-- Include the view file for the current controller/route -->
 
         <%- body %>
+
+        <!-- Footer -->
+			<footer id="footer" class="container">
+                <% if (req.path == '/'){ %>
+				<div class="row">
+					<div class="12u">
+
+						<!-- About -->
+							<section>
+								<h2 class="major"><span>What's this about?</span></h2>
+								<p>
+									This is <a href="http://html5up.net/txt/">TXT</a>, a free site template designed by
+									<a href="http://n33.co">n33</a> for <a href="http://html5up.net/">HTML5 UP</a>.
+									It's built on the <a href="http://skeljs.org">skelJS</a> framework, uses well-thought out
+									HTML5 and CSS3, and is fully responsive making it a great starting point for your own
+									projects. And, like everything else we make, it's also free to use for pretty much any
+									personal or commercial work under the <a href="http://html5up.net/license/">Creative Commons Attribution</a>
+									license, so go ahead and use it &ndash; just don't forget to credit us!
+								</p>
+							</section>
+						<!-- /About -->
+
+					</div>
+				</div>
+                <% } %>
+				<div class="row">
+					<div class="12u">
+
+						<!-- Contact -->
+							<section>
+								<h2 class="major"><span>Get in touch</span></h2>
+								<ul class="contact">
+									<li><a class="fa fa-facebook solo" href="#"><span>Facebook</span></a></li>
+									<li><a class="fa fa-twitter solo" href="http://twitter.com/n33co"><span>Twitter</span></a></li>
+									<li><a class="fa fa-rss solo" href="http://n33.co/feed/"><span>RSS</span></a></li>
+									<li><a class="fa fa-dribbble solo" href="http://dribbble.com/n33"><span>Dribbble</span></a></li>
+									<li><a class="fa fa-linkedin solo" href="#"><span>LinkedIn</span></a></li>
+									<li><a class="fa fa-google-plus solo" href="#"><span>Google+</span></a></li>
+								</ul>
+							</section>
+						<!-- /Contact -->
+
+					</div>
+				</div>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						&copy; Untitled Something | Images: <a href="http://fotogrph.com">fotogrph</a> | Design: <a href="http://html5up.net/">HTML5 UP</a> | <a href="/legal"><%=i18n('Legal terms')%></a>
+					</div>
+				<!-- /Copyright -->
+
+			</footer>
+		<!-- /Footer -->
 
         <!-- Your scripts here? -->
 

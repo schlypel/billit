@@ -1047,28 +1047,8 @@
 /* Login                                                                          */
 /*********************************************************************************/
 
-	.loginBox
+	#loginForm input
     {
-        margin: 0 auto;
-        max-width: 240px;
-        text-align: center;
-    }
-	.clearfix:after{
-        content: ".";
-        display: block;
-        clear: both;
-        visibility: hidden;
-        line-height: 0;
-        height: 0;
-    }
-    .clearfix{
-        display: inline-block;
-    }
-    .loginBox input, .loginBox .button{
-        width: 90%;
-    }
-	.loginBox input
-	{
         clear: both;
         border: 1px solid #C1CAC5;
         border-radius: 4px;
@@ -1095,7 +1075,11 @@
         transition-duration: 0.15s, 0.15s;
         transition-property: border-color, box-shadow;
         transition-timing-function: ease-in-out, ease-in-out;
-	}
- .loginBox input:focus{
-     box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset, #C1CAC5 0px 0px 8px 0px;
- }
+        width: 100%;
+    }
+    #loginForm input:focus{
+        box-shadow: rgba(0, 0, 0, 0.0745098) 0px 1px 1px 0px inset, #C1CAC5 0px 0px 8px 0px;
+    }
+    #loginForm .button{
+        width: 100%;
+    }

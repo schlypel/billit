@@ -50,6 +50,9 @@ module.exports.routes = {
         controller: 'auth',
         action: 'isLoggedIn'
     },
+    'get /legal': {
+        view: 'home/legal'
+    },
     'get /app': {
         controller: 'app',
         action: 'index'

@@ -2,60 +2,26 @@
 			<div id="main-wrapper">
 				<div id="main" class="container">
 					<div class="row">
-						<div class="12u">
-                            <section class="login is-highlight">
-                                <div class="loginBox">
-                                    <% if (!req.session.authenticated){ %>
-                                    <form action="/login" method="post" id="loginForm">
-                                        <input type="hidden" name="_csrf" value="<%- _csrf %>" />
-                                        <br />
-                                        <input type="text" name="username" placeholder="Username" required />
-                                        <br />
-                                        <input type="password" name="password" placeholder="" required />
-                                        <br />
-                                        <a href="#" onclick="document.getElementById('loginForm').submit();return false;" title="<%= i18n('Login') %>" class="button">
-                                           <%= i18n('Login') %>
-                                        </a>
-                                    </form>
-                                    <% }else{ %>
-                                    <p><%= i18n('You are allready logged in.') %></p>
-                                    <a class="button" href="/app" title="<%= i18n('Go to app') %>"><%= i18n('Go to app') %></a>
-                                    <%  } %>
-                                </div>
-                            </section>
-                        </div>
+						<section class="-4u 4u is-highlight">
+                            <% if (!req.session.authenticated){ %>
+                            <form action="/login" method="post" id="loginForm">
+                                <div class="row"><div class="12u">
+                                <input type="hidden" name="_csrf" value="<%- _csrf %>" />
+                                <input type="text" name="username" placeholder="Username" required />
+                                </div></div><div class="row"><div class="12u">
+                                <input type="password" name="password" placeholder="" required />
+                                </div></div><div class="row"><div class="12u">
+                                <a class="button" href="#" onclick="document.getElementById('loginForm').submit();return false;" title="<%= i18n('Login') %>">
+                                   <%= i18n('Login') %>
+                                </a>
+                                </div></div>
+                            </form>
+                            <% }else{ %>
+                            <p><%= i18n('You are allready logged in.') %></p>
+                            <a class="button 12u" href="/app" title="<%= i18n('Go to app') %>"><%= i18n('Go to app') %></a>
+                            <%  } %>
+                        </section>
                     </div>
                 </div>
             </div>
         <!-- /  Main -->
-
-        <!-- Footer -->
-			<footer id="footer" class="container">
-				<div class="row">
-					<div class="12u">
-
-						<!-- Contact -->
-							<section>
-								<h2 class="major"><span>Get in touch</span></h2>
-								<ul class="contact">
-									<li><a class="fa fa-facebook solo" href="#"><span>Facebook</span></a></li>
-									<li><a class="fa fa-twitter solo" href="http://twitter.com/n33co"><span>Twitter</span></a></li>
-									<li><a class="fa fa-rss solo" href="http://n33.co/feed/"><span>RSS</span></a></li>
-									<li><a class="fa fa-dribbble solo" href="http://dribbble.com/n33"><span>Dribbble</span></a></li>
-									<li><a class="fa fa-linkedin solo" href="#"><span>LinkedIn</span></a></li>
-									<li><a class="fa fa-google-plus solo" href="#"><span>Google+</span></a></li>
-								</ul>
-							</section>
-						<!-- /Contact -->
-
-					</div>
-				</div>
-
-				<!-- Copyright -->
-					<div id="copyright">
-						&copy; Untitled Something | Images: <a href="http://fotogrph.com">fotogrph</a> | Design: <a href="http://html5up.net/">HTML5 UP</a>
-					</div>
-				<!-- /Copyright -->
-
-			</footer>
-		<!-- /Footer -->

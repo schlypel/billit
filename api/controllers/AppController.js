@@ -24,7 +24,7 @@ module.exports = {
     */
     index: function (req, res) {
         return res.view({
-            layout:'layout-app'
+            layout:false//'layout-app'
         });
 
         // Send a JSON response

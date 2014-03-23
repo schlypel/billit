@@ -19,6 +19,9 @@ module.exports.policies = {
     '*': true,
     AppController: {
         '*': 'isAuthenticated'
+    },
+    PersonController: {
+        '*': 'isAuthenticated'
     }
 
 
