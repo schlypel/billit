@@ -72,10 +72,14 @@
 			<div id="main-wrapper">
 				<div id="main" class="container">
 					<div class="row">
-						<div class="12u">
-                            <section class="login is-highlight">
-                                <p> here goes the app </p>
+						<div class="9u">
+                            <section class="login is-highlight" id="rgnTasklist">
+                                <p> Tasklist will be here <i class="fa fa-envelope solo"></i> </p>
                             </section>
+                        </div>
+                        <div class="3u">
+                            <aside id="rgnUserData">Userdata</aside>
+                            <aside id="rgnBusinessData">Businessdata</aside>
                         </div>
                     </div>
                 </div>
@@ -125,7 +129,6 @@
         Here's an example of importing a few dependencies, in order:
         -->
 
-		<script type="text/javascript" data-main="js/main" src="/js/require.js"></script>
         <!-- Bring in the socket.io client -->
         <script type="text/javascript" src="/js/socket.io.js"></script>
         <!-- then beef it up with some convenience logic for talking to Sails.js -->
@@ -140,11 +143,44 @@
 		<script type="text/javascript" src="/js/skel-panels.min.js"></script>
 
 
-        <!--
-        Other scripts get sucked through the websocket into the page
-        -->
+        <!-- scripts for the backbone SPA -->
+        <script type="text/javascript" src="/js/json2.js"></script>
+        <script type="text/javascript" src="/js/underscore-min.js"></script>
+        <script type="text/javascript" src="/js/backbone.js"></script>
+        <script type="text/javascript" src="/js/backbone.marionette.js"></script>
+        <script type="text/javascript" src="/js/backbone.babysitter.js"></script>
+        <script type="text/javascript" src="/js/backbone.wreqr.js"></script>
+        <script type="text/javascript" src="/js/handlebars-v1.3.0.js"></script>
+
+        <!-- the templates-->
+        <script type="text/x-handlebars-template" id="tplUserData">
+        <h3>{{name}}</h3>
+        {{#if contact}}
+            <ul>
+            {{#each contact}}
+                <li>{{#if icon}}<i class="fa fa-{{{icon}}}"></i>{{else}}{{name}}:{{/if}} <b>{{value}}</b></li>
+            {{/each}}
+            </ul>
+        {{/if}}
+        </script>
+        <script type="text/x-handlebars-template" id="tplBusinessData">
+        <h3>Business</h3>
+        <p>fill with business data</p>
+        </script>
 
 
+        <!-- my bb app-->
+        <script type="text/javascript" src="/js/bbApp/app.js"></script>
+        <script type="text/javascript" src="/js/bbApp/UserModule.js"></script>
+        <script type="text/javascript" src="/js/bbApp/BusinessModule.js"></script>
+
+        <!-- lets start it -->
+        <script type="text/javascript">
+            var options = {};
+            $(document).ready(function(){
+                Billit.start(options);
+            });
+        </script>
 
         <!--
 
