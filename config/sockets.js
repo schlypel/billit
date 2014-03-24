@@ -10,16 +10,54 @@
 
 module.exports.sockets = {
 
-  // This custom onConnect function will be run each time AFTER a new socket connects
-  // (To control whether a socket is allowed to connect, check out `authorization` config.)
-  // Keep in mind that Sails' RESTful simulation for sockets
-  // mixes in socket.io events for your routes and blueprints automatically.
-  onConnect: function(session, socket) {
+    // This custom onConnect function will be run each time AFTER a new socket connects
+    // (To control whether a socket is allowed to connect, check out `authorization` config.)
+    // Keep in mind that Sails' RESTful simulation for sockets
+    // mixes in socket.io events for your routes and blueprints automatically.
+    onConnect: function(session, socket) {
+        'use strict';
+        var fs = require('fs');
+        var path = require('path');
+        var base = process.cwd();
+        // subscribe to the asset event, to be able to send the client the required assets
+        socket.on('asset',function(asset, cb){
+            console.log('Request for asset received');
+            console.dir(asset);
 
-    // By default: do nothing
-    // This is a good place to subscribe a new socket to a room, inform other users that
-    // someone new has come online, or any other custom socket.io logic
-  },
+            // asset map
+            var map = {
+                'json2'       :'json2.js',
+                'underscore'  :'underscore-min.js',
+                'backbone'    :'backbone.js',
+                'marionette'  :'backbone.marionette.js',
+                'wreqr'       :'backbone.wreqr.js',
+                'babysitter'  :'backbone.babysitter.js'/*,
+                'BBapp'       :'BBApp.js',
+                'UserModule'  :'modules/UserModule.js',
+                '':'',*/
+            };
+            var JS = '';
+
+            if((typeof asset) == 'string'){// && asset.js && (typeof asset.js) == 'object'){
+                // in map?
+                if (map.hasOwnProperty(asset)){
+                    asset = map[asset];
+                }else{
+                    cb('alert("the asset you requested is not there, check your list! ('+asset+')")');
+                    asset = false;
+                }
+
+                if (asset){
+                    var filename = path.normalize(base + '/assets/js/pushable/' + asset);
+                    console.log(filename);
+                    cb(fs.readFileSync(filename).toString());
+                }
+            }else{
+                console.log('The call for asset didnt submit a valid request');
+                cb('alert("The call for asset didnt submit a valid request")');
+            }
+        });
+    },
 
   // This custom onDisconnect function will be run each time a socket disconnects
   onDisconnect: function(session, socket) {

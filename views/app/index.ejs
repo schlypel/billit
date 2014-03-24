@@ -124,6 +124,8 @@
 
         Here's an example of importing a few dependencies, in order:
         -->
+
+		<script type="text/javascript" data-main="js/main" src="/js/require.js"></script>
         <!-- Bring in the socket.io client -->
         <script type="text/javascript" src="/js/socket.io.js"></script>
         <!-- then beef it up with some convenience logic for talking to Sails.js -->
@@ -131,10 +133,7 @@
         <!-- listen on socket.io for incoming messages -->
         <script type="text/javascript" src="/js/app.js"></script>
 
-        <!-- Your scripts here? -->
-        <!-- Your scripts here? -->
-        <!-- Your scripts here? -->
-
+        <!-- scripts from theme -->
 		<script type="text/javascript" src="/js/jquery.min.js"></script>
 		<script type="text/javascript" src="/js/config.js"></script>
 		<script type="text/javascript" src="/js/skel.min.js"></script>
@@ -142,15 +141,7 @@
 
 
         <!--
-
-        Looking for client-side CoffeeScript or TypeScript?
-        ================================================
-
-        CoffeeScript and TypeScript precompilation are not installed by default,
-        but if you'd like to mix those features in, it is straightforward to
-        `npm install` the relevant grunt community modules and modify your Gruntfile
-        to use them.
-
+        Other scripts get sucked through the websocket into the page
         -->
 
 
