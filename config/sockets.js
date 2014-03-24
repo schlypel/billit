@@ -16,6 +16,8 @@ module.exports.sockets = {
     // mixes in socket.io events for your routes and blueprints automatically.
     onConnect: function(session, socket) {
         'use strict';
+
+        /* Assets throug socket may come later
         var fs = require('fs');
         var path = require('path');
         var base = process.cwd();
@@ -34,7 +36,7 @@ module.exports.sockets = {
                 'babysitter'  :'backbone.babysitter.js'/*,
                 'BBapp'       :'BBApp.js',
                 'UserModule'  :'modules/UserModule.js',
-                '':'',*/
+                '':'',* /
             };
             var JS = '';
 
@@ -57,6 +59,7 @@ module.exports.sockets = {
                 cb('alert("The call for asset didnt submit a valid request")');
             }
         });
+        */
     },
 
   // This custom onDisconnect function will be run each time a socket disconnects

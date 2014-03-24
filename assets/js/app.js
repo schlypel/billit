@@ -18,6 +18,21 @@
 
     socket.on('connect', function socketConnected() {
 
+        /* asset trhough socket may come later
+         *
+         *
+        // load the assets we need through a socket :-D
+
+        function getNextAsset(){
+            var asset = assets.shift();
+            if (asset){
+                socket.emit('asset',asset,function(ans){
+                    log('Loading ' + asset);
+                    eval(ans);
+                    getNextAsset();
+                });
+            }
+        }
         var assets = [
             'json2',
 //            'underscore',
@@ -32,6 +47,7 @@
 //            'MenuModule'
         ];
         getNextAsset();
+        */
 
         // Listen for Comet messages from Sails
         socket.on('message', function messageReceived(message) {
@@ -59,20 +75,6 @@
             '{ console.log(response); })`'
         );*/
         ///////////////////////////////////////////////////////////
-
-        // load the assets we need through a socket :-D
-
-        function getNextAsset(){
-            var asset = assets.shift();
-            if (asset){
-                socket.emit('asset',asset,function(ans){
-                    log('Loading ' + asset);
-                    eval(ans);
-                    getNextAsset();
-                });
-            }
-        }
-
 
     });
 
