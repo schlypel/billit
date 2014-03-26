@@ -73,7 +73,7 @@
 				<div id="main" class="container">
 					<div class="row">
 						<div class="9u">
-                            <section class="login is-highlight" id="rgnTasklist">
+                            <section class="login is-highlight" id="rgnTaskList">
                                 <p> Tasklist will be here <i class="fa fa-envelope solo"></i> </p>
                             </section>
                         </div>
@@ -164,8 +164,26 @@
         {{/if}}
         </script>
         <script type="text/x-handlebars-template" id="tplBusinessData">
-        <h3>Business</h3>
-        <p>fill with business data</p>
+        <h3>{{name}}</h3>
+        <p>{{description}}</p>
+        </script>
+        <script type="text/x-handlebars-template" id="tplTaskList">
+        <h2 class="major"><span>Tasks</span></h2>
+        <div id="taskListControls"><a href="#" class=""><i class="fa fa-plus"></i>CLICK</a></div>
+        <div id="taskListHolder">
+            <table id="taskList">
+                <thead>
+                    <tr>
+                        <th>#</th><th><%= i18n('Title') %></th><th><%= i18n('Client')%></th><th><%= i18n('Duration') %></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td><td></td><td></td><td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         </script>
 
 
@@ -173,6 +191,7 @@
         <script type="text/javascript" src="/js/bbApp/app.js"></script>
         <script type="text/javascript" src="/js/bbApp/UserModule.js"></script>
         <script type="text/javascript" src="/js/bbApp/BusinessModule.js"></script>
+        <script type="text/javascript" src="/js/bbApp/TaskListModule.js"></script>
 
         <!-- lets start it -->
         <script type="text/javascript">

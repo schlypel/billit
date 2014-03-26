@@ -8,7 +8,7 @@ if (!this.Billit || typeof this.Billit !== 'object') {
     Billit.addRegions({
         userDataRegion: "#rgnUserData",
         businessDataRegion: "#rgnBusinessData",
-        tasklistRegion: '#rgnTasklist'
+        taskListRegion: '#rgnTaskList'
     });
 
     Billit.vent.on('all', function (evt, model) {

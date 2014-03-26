@@ -5,50 +5,46 @@ if (!this.Billit || typeof this.Billit !== 'object') {
     'use strict';
 
     //the module
-    Billit.module('UserModule', function (Mod, Billit, Backbone, Marionette, $, _, Handlebars) {
+    Billit.module('TaskListModule', function (Mod, Billit, Backbone, Marionette, $, _, Handlebars) {
 
         //==================================
         //initializer called on Billit.start(options)
         //==================================
         Mod.addInitializer(function (options) {
             Mod.controller = new Controller({
-                region: Billit.userDataRegion
+                region: Billit.taskListRegion
             });
         });
 
 
         //==================================
-        //Controller for the UserModule
+        //Controller for the TaskListModule
         //==================================
         var Controller = Backbone.Marionette.Controller.extend({
             initialize: function (options) {
-                console.log('UserModule:Controller:initialize');
-                this.view = new UserDataView();
+                console.log('TaskListModule:Controller:initialize');
+                this.view = new TaskListView();
                 options.region.show(this.view);
             }
         });
     });
 
     //the model
-    var UserModel = Backbone.Model.extend({});
+    var TaskListModel = Backbone.Model.extend({});
     var fixture = {name: 'Homer Simpson',contact: [{name: 'Email',value:'homer@simpsons.com',icon:'envelope'}]};
-    var user = new UserModel(fixture);
+    var taskList = new TaskListModel(fixture);
 
     //the item view
-    var UserDataView = Backbone.Marionette.ItemView.extend({
-        model: user,
-        template: Handlebars.compile($('#tplUserData').html()),
+    var TaskListView = Backbone.Marionette.ItemView.extend({
+        model: taskList,
+        template: Handlebars.compile($('#tplTaskList').html()),
         tagname: 'div',
-        addClass: 'userInfo',
+        addClass: 'TaskListInfo',
         events: {
-            'click': 'itemClicked'
-        },
-        itemClicked: function(){
-            console.log('UserData clicked');
-            Billit.vent.trigger(this.model.get('name'), this)
+            //'click': 'itemClicked'
         },
         initialize: function(){
-            this.model.on('change', this.render);
+            //this.model.on('change', this.render);
         }/*,
         render: function(){
 
