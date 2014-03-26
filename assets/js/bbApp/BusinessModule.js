@@ -31,19 +31,23 @@ if (!this.Billit || typeof this.Billit !== 'object') {
 
     //the model
     var BusinessModel = Backbone.Model.extend({});
-
+    var fixture = {name: 'IT.dyndns.pro',description: 'IT Services / Webdevelopment / Nerdstuff'};
+    var business = new BusinessModel(fixture);
     //the item view
     var BusinessDataView = Backbone.Marionette.ItemView.extend({
-        //model: BusinessModel, //TODO figure out how to assign a model
-        template: '#tplBusinessData',
+        model: business,
+        template: Handlebars.compile($('#tplBusinessData').html()),
         tagname: 'div',
         addClass: 'BusinessInfo',
         events: {
-            'click': 'itemClicked'
+            //'click': 'itemClicked'
         },
-        itemClicked: function(){
+        initialize: function(){
+            this.model.on('change', this.render);
+        }
+        /*itemClicked: function(){
             console.log('BusinessData clicked');
             Billit.vent.trigger(this.model.get('name'), this)
-        }
+        }*/
     });
 })();
