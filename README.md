@@ -5,3 +5,5 @@ As a freelancer i needed some way to organize my bills. Also i wanted to dive in
 I used [sailsJS](http://sailsjs.org).
 
 Also i applied a free html5 theme from [HTML5 UP](http://html5up.net/)
+
+// work frozen/interrupted because my workload on official stuff went to high...
